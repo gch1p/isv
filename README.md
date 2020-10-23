@@ -9,7 +9,7 @@ For now, only USB connection is supported and tested (I just don't have the RS-2
 lol), but RS-232 support will be added eventually.
 
 It's written in pure C99 with almost zero dependencies. It uses [libvoltronic](https://github.com/jvandervyver/libvoltronic)
-for underlying device interaction. but you don't need to download and build it separately as **isv** comes with its own
+for underlying device interaction, but you don't need to download and build it separately as **isv** comes with its own
 slightly modified libvoltronic version.
 
 It can output data in different formats (human-readable tables, conveniently-parsable tables and even JSON) so you can
