@@ -280,7 +280,7 @@ static void get_args(int argc, const char **argv, const char **arguments_dst, si
         if (optind < argc && *argv[optind] != '-')
             arguments_dst[i] = argv[optind++];
         else
-            exit_with_error(1, "option %s requires %zu arguments\n",
+            exit_with_error(1, "option %s requires %zu arguments",
                             argv[optind-i-1], count);
     }
 }
@@ -291,7 +291,7 @@ static void execute_raw(voltronic_dev_t dev, const char *command, int timeout)
     int result = voltronic_dev_execute(dev, 0, command, strlen(command),
                                    buffer, sizeof(buffer), NULL, timeout);
     if (result <= 0)
-        exit_with_error(2, "failed to execute %s: %s\n", command, strerror(errno));
+        exit_with_error(2, "failed to execute %s: %s", command, strerror(errno));
     printf("%s\n", buffer);
 }
 
@@ -306,7 +306,7 @@ static void query(voltronic_dev_t dev,
     char command[COMMAND_BUF_LENGTH];
 
     if (!p18_build_command(command_key, args, args_size, command))
-        exit_with_error(1, "invalid query command %d\n", command_key);
+        exit_with_error(1, "invalid query command %d", command_key);
 
     if (pretend) {
         size_t command_len = strlen(command);
@@ -321,12 +321,12 @@ static void query(voltronic_dev_t dev,
                                            buffer, sizeof(buffer), &received,
                                            timeout);
     if (result <= 0)
-        exit_with_error(2, "failed to execute %s: %s\n", command, strerror(errno));
+        exit_with_error(2, "failed to execute %s: %s", command, strerror(errno));
 
     if (command_key < P18_SET_CMDS_ENUM_OFFSET) {
         size_t data_size;
         if (!p18_validate_query_response(buffer, received, &data_size))
-            exit_with_error(2, "invalid response\n");
+            exit_with_error(2, "invalid response");
 
         if (command_key == P18_QUERY_PROTOCOL_ID)
             PRINT(protocol_id)
