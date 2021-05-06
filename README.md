@@ -1,5 +1,13 @@
 # isv
 
+**IMPORTANT!**
+
+This project has been discontinued. It was rewritten in C++ and is called
+[inverter-tools](https://github.com/gch1p/inverter-tools) now. All further development
+will happen in the new project.
+
+---
+
 **isv** is utility for controlling Voltronic hybrid solar inverters that use P18 protocol. **isv** has full P18
 support with all known methods implemented. It was written for use with InfiniSolar V 5kW  inverter and it's the only
 inverter it has been tested with so far, but it should work with other inverters using P18 protocol as well. Adding
